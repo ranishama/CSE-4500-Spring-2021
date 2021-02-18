@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h5>JSON.parse </h5>
+<p id = "parsing"> </p>
+
+<script>
+    var car;
+    car = '{"model" : "Escalade", "year" : 2020, "lot" : "7"}'
+    var par = JSON.parse(car);
+    document.getElementById("parsing").innerHTML = "The "+ par.year + " "+ par.model+ " is at lot number " +par.lot;
+</script>
+
+<h5>JSON.stringify</h5>
+
+<p id="stringify"></p>
+
+<script>
+    var car = {model: "Escalade", year: 2020, lot : "7"};
+    var str = JSON.stringify(car);
+    document.getElementById("stringify").innerHTML = str;
+</script>
+
+</body>
+</html>
