@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatiable" content="ie=edge">
+
+    <title> </title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+    <link rel="stylesheet" href="style.css">  
+
+</head>
+<body>
+
+    <input type="text" placeholder="Enter A State" id = "input">
+    <button type="button" onclick="getInputValue();"> Go </button>
+   
+    <div class="weather-container">
+    
+        <script>
+            function getInputValue()
+            {
+                var input12 = document.getElementById("input").value;
+
+                $.getJSON("https://api.openweathermap.org/data/2.5/weather?q="+input12+"&units=imperial&appid=ab8659201f5a9345483d378e28da9721", function(data){
+            
+                console.log(data);
+                var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+                var temp = Math.floor(data.main.temp);
+                var weather = data.weather[0].main;
+
+                $('.icon').attr('src',icon); 
+                $('.weather').append(weather);
+                $('.temp').append(temp);
+                });
+
+            }
+        </script>
+        
+        <img class="icon">
+        <p class="weather"></p>
+        <p class="temp"></p>
+    
+    </div>
+
+</body>
+</html>
